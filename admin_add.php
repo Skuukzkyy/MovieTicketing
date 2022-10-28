@@ -155,14 +155,14 @@ if(isset($_POST["btnSubmit"])){
 
                             <h6>Category:</h6>
                             <?php
-                                $query = "SELECT * FROM movie_categories ORDER BY category";
+                                $query = "SELECT * FROM category_tbl ORDER BY category";
                                 $categories = mysqli_query($conn, $query);
                                 foreach($categories as $category):?>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" name="category[]" type="checkbox" id="<?php echo $category['category'] ?>" value="<?php echo $category['id'] ?>">
                                         <label class="form-check-label" for="<?php echo $category['category'] ?>"><?php echo $category['category'] ?></label>
                                     </div>
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
                             
                             <h6>Number of tickets:</h6>
                             <div class="mb-3">
