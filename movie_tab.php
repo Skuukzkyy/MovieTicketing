@@ -1,7 +1,7 @@
 <?php
     require "connection.php";
     $id = $_GET['id'];
-    $rows = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE id = '$id'");
+    $rows = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE movie_id = '$id'");
 ?>
 
 <!DOCTYPE html>
