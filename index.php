@@ -40,13 +40,13 @@
 			if ($count == 0) {
 				echo "
 				<div class='image active'>
-					<a href='movie_tab.php?id=".$row['id']."'><img src='img/".$row['banner1']."' title='".$row['movie_title']."'></a>
+					<a href='movie_tab.php?id=".$row['movie_id']."'><img src='img/".$row['banner1']."' title='".$row['movie_title']."'></a>
 				</div>";
 				$count++;
 			} else{
 		?>
 			<div class="image">
-			<a href="movie_tab.php?id=<?php echo $row['id']; ?>"><img src="img/<?php echo $row["banner1"]; ?>" title="<?php echo $row['movie_title']; ?>"></a>
+			<a href="movie_tab.php?id=<?php echo $row['movie_id']; ?>"><img src="img/<?php echo $row["banner1"]; ?>" title="<?php echo $row['movie_title']; ?>"></a>
 			</div>
 		<?php } endforeach; ?>
     
