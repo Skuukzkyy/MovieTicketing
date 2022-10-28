@@ -67,7 +67,7 @@
 				<li class="item">
 					<!--showcase-box------------------->
 					<div class="showcase-box">
-						<a href="movie_tab.php?id=<?php echo $row['id']; ?>"><img src="img/<?php echo $row["banner1"]; ?>" title="<?php echo $row['movie_title']; ?>"></a>
+						<a href="movie_tab.php?id=<?php echo $row['movie_id']; ?>"><img src="img/<?php echo $row["banner1"]; ?>" title="<?php echo $row['movie_title']; ?>"></a>
 					</div>
 				</li>
 
