@@ -1,7 +1,8 @@
 <?php
     require "connection.php";
     $id = $_GET['id'];
-    $rows = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE movie_id = '$id'");
+    $movie_info = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE movie_id = '$id'");
+    $movie_category = mysqli_query($conn, "SELECT movie_category.movie_title, category_tbl.category FROM movie_category INNER JOIN category_tbl ON movie_category.category_id = category_tbl.category_id INNER JOIN movie_tbl ON movie_category.movie_title = movie_tbl.movie_title WHERE movie_tbl.movie_id = '$id'");
 ?>
 
 <!DOCTYPE html>
@@ -27,14 +28,18 @@
 <hr>
 
         <div class="descrip">
-            <?php foreach ($rows as $row) : ?>
-                <img src="img/<?php echo $row['banner2'] ?>" class="pic"><br><br><br><br>
-                <h4><?php echo $row['movie_category'];?></h4>
-                <h1><?php echo $row['movie_title'];?></h1>
-                    <h3><?php echo $row['movie_description'];?><br></h3><br>
+            <?php foreach ($movie_info as $data) : ?>
+                <img src="img/<?php echo $data['banner2'] ?>" class="pic"><br><br><br><br>
+                <h4>
+                    <?php foreach ($movie_category as $category) {
+                        echo $category['category']." ";
+                    } ?>
+                </h4>
+                <h1><?php echo $data['movie_title'];?></h1>
+                    <h3><?php echo $data['movie_description'];?><br></h3><br>
         </div><br>
                 <h1>Official Trailer</h1>
-                <iframe src="<?php echo $row['movie_trailer'];?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+                <iframe src="<?php echo $data['movie_trailer'];?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
                 <hr>
             <?php endforeach; ?>
 </body>
