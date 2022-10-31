@@ -53,6 +53,7 @@ hr{
 
 .container1{
     padding-left: 220px;
+    padding-top: 500px;
 }
 
 .box1{
@@ -133,10 +134,10 @@ hr{
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
-    align-self: center;
-    font-family: 'Century Gothic',sans-serif;
-    position: absolute;
-    margin-left: 30%;
+  align-self: center;
+  font-family: 'Century Gothic',sans-serif;
+  position: absolute;
+  margin-left: 30%;
 }
 
 .contact-box{

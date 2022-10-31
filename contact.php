@@ -18,6 +18,20 @@
             </ul>
         </nav>
     </header><hr>
+
+    <div class="container3">
+		<div class="contact-box">
+			<div class="box">
+				<h2>Contact Us</h2>
+				<input type="text" class="field" placeholder="Full Name">
+				<input type="text" class="field" placeholder="Email">
+				<input type="text" class="field" placeholder="Phone">
+				<textarea placeholder="Send us a Message" class="field"></textarea>
+				<button class="btn">Send</button>
+			</div>
+		</div>
+	</div>
+
 <div class="container1">
     <div class="box1">
         <img src="media/p1.png" alt="" class="box-img">
@@ -38,19 +52,6 @@
     </div>
 </div>                                                                                                                                                                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
 <br>
-
-<div class="container3">
-		<div class="contact-box">
-			<div class="box">
-				<h2>Contact Us</h2>
-				<input type="text" class="field" placeholder="Full Name">
-				<input type="text" class="field" placeholder="Email">
-				<input type="text" class="field" placeholder="Phone">
-				<textarea placeholder="Send us a Message" class="field"></textarea>
-				<button class="btn">Send</button>
-			</div>
-		</div>
-	</div>
 
 </body>
 </html>

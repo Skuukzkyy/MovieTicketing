@@ -87,3 +87,102 @@ iframe{
     display:block;
     margin: 0 auto;
 }
+
+.buy{
+    background-color: #f0ad4e;
+}
+
+button {
+    padding: 5px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'Century Gothic',sans-serif;
+}
+
+button:hover{
+    background-color: #00FFFF;
+}
+
+
+
+.buy_form{
+	width: 50%;
+	height: 40%;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+    align-self: center;
+    font-family: 'Century Gothic',sans-serif;
+    position: absolute;
+    margin-left: 25%;
+}
+
+.contact-box{
+	justify-content: center;
+	align-items: center;
+	text-align: left;
+    color: #f0ad4e;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.box{
+	padding: 25px 40px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0.4);
+	outline: none;
+    background-color: white;
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+    background-color: white;
+}
+
+.submit{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #f0ad4e;
+	color:black;
+	font-size: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.submit:hover{
+    background-color: #00ffff;
+}
+
+.field:focus{
+    border: 4px solid #f0ad4e;
+    background-color: #fff;
+}
+
+.formP{
+    text-justify: left;
+    font-size: 20px;
+}
+
+.Mtitle{
+    font-size: 30px;
+    color: #00FFFF;
+}
