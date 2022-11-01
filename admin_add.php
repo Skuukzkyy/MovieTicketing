@@ -1,26 +1,28 @@
 <?php
 require 'connection.php';
-if (isset($_GET["movie_id"])) {
-    $movie_id = $_GET["movie_id"];
-}
+// if (isset($_GET["movie_id"])) {
+//     $movie_id = $_GET["movie_id"];
+// }
 
 if(isset($_POST["btnSubmit"])){
+    // DATA FOR TICKETS_TBL 
+    $ticket_to_sell = $_POST["ticket_to_sell"];
+    $ticket_price = $_POST["Mprice"];
+    mysqli_query($conn, "INSERT INTO tickets_tbl VALUES('', '$ticket_to_sell', '$ticket_price', '0')");
+    
+    
+    // DATA FOR MOVIE_TBL
     $movie_title = $_POST["Mtitle"];
     $movie_description = $_POST["Mdes"];
+    $movie_description = str_replace("'","",$movie_description);
     $movie_trailer = $_POST["Mtrailer"];
+    $movie_start = $_POST["MSdate"];
+    $movie_end = $_POST["MEdate"];
     $movie_category_list = $_POST['category'];
-    // echo $movie_category_list;
-    // $movie_category = "";
     foreach ($movie_category_list as $category) {
         $sql = "INSERT INTO movie_category VALUES ('$movie_title', '$category')";
         mysqli_query($conn, $sql);
     }
-    // $movie_category = rtrim($movie_category, ",");
-    $ticket_amount = $_POST["ticket_num"];
-    $movie_price = $_POST["Mprice"];
-    $movie_start = $_POST["MSdate"];
-    $movie_end = $_POST["MEdate"];
-    $movie_description = str_replace("'","",$movie_description);
     //banner 2 portailrskfj
     if($_FILES["Mbanner2"]["error"] == 4){
         echo
@@ -89,7 +91,7 @@ if(isset($_POST["btnSubmit"])){
         $banner1 .= '.' . $imageExtension;
         imagejpeg($image2, 'img/' . $banner1, 50);
         // move_uploaded_file($tmpName, 'img/' . $banner1);
-        $query = "INSERT INTO movie_tbl VALUES('', '$movie_title', '$movie_description', '$movie_trailer', '$ticket_amount', '$movie_price', '$movie_start', '$movie_end', '$banner1', '$banner2')";
+        $query = "INSERT INTO movie_tbl VALUES('', '$movie_title', '$movie_description', '$movie_trailer', '$movie_start', '$movie_end', '$banner1', '$banner2')";
         mysqli_query($conn, $query);
         echo
         "
@@ -167,7 +169,7 @@ if(isset($_POST["btnSubmit"])){
                             
                             <h6>Number of tickets:</h6>
                             <div class="mb-3">
-                                <input type="text" name="ticket_num" class="form-control mr-2 form-control-lg" placeholder="Number of ticket to sell" required>
+                                <input type="text" name="ticket_to_sell" class="form-control mr-2 form-control-lg" placeholder="Number of ticket to sell" required>
                             </div>
                             
                             <h6>Price/ticket:</h6>

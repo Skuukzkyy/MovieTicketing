@@ -42,7 +42,7 @@ require 'connection.php';
                                     <tbody>
                                     <?php
                                         $i = 1;
-                                        $rows = mysqli_query($conn, "SELECT * FROM movie_tbl ORDER BY id DESC")
+                                        $rows = mysqli_query($conn, "SELECT * FROM movie_tbl ORDER BY movie_id DESC")
                                         ?>
                                         <?php foreach ($rows as $row) : ?>
                                         <tr>
