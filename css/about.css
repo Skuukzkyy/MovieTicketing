@@ -40,7 +40,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px 10%;
+    padding: 1% 5% 0;
 }
 
 hr{
@@ -49,4 +49,9 @@ hr{
 	height: 3px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.active{
+    font-weight: bolder;
+    color: #00FFFF;
 }

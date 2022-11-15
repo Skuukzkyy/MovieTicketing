@@ -1,2 +1,2 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "movies");
+$conn = mysqli_connect("localhost", "root", "", "movies");

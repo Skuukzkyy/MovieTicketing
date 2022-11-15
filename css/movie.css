@@ -50,7 +50,7 @@ button {
     margin-left: 10px;
 }
 
-button:hover {
+.btn_buy:hover {
     background-color:	#00FFFF;
 }
 
@@ -58,7 +58,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px 10%;
+    padding: 1% 5% 0;
 }
 
 hr{
@@ -148,8 +148,35 @@ p{
     background-color: #f0ad4e;
 }
 
-p.head {
-    margin-left: 40px;
+.search-container{
+    display: flex;
+    justify-content: end;
+}
+
+#searchBar{
+    background: white;
+    padding: 0 5%;
+    text-align: center;
+    height: 40px;
+	color: black;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 1% 5.4%;
+}
+
+
+.head {
     color: #edf0f1;
     font-size: 25px;
+    margin: 0 6% 0 6%;
 }
+
+.active{
+    font-weight: bolder;
+    color: #00FFFF;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

@@ -17,7 +17,7 @@
         <img class="logo" src="media/logo.png" alt="logo">
         <nav>
             <ul class="nav_links">
-                <li><a href="index.php">HOME</a></li>
+                <li><a href="index.php" class="active">HOME</a></li>
                 <li><a href="movie.php">MOVIES</a></li>
                 <li><a href="upcoming.php">UPCOMING</a></li>
                 <li><a href="about.php">ABOUT</a></li>

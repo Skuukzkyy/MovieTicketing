@@ -14,7 +14,7 @@
                 <li><a href="movie.php">MOVIES</a></li>
                 <li><a href="upcoming.php">UPCOMING</a></li>
                 <li><a href="about.php">ABOUT</a></li>
-                <li><a href="contact.php">CONTACT US</a></li>
+                <li><a href="contact.php" class="active">CONTACT US</a></li>
             </ul>
         </nav>
     </header><hr>

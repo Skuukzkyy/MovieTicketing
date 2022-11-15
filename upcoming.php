@@ -13,7 +13,7 @@
             <ul class="nav_links">
             <li><a href="index.php">HOME</a></li>
             <li><a href="movie.php">MOVIES</a></li>
-            <li><a href="upcoming.php">UPCOMING</a></li>
+            <li><a href="upcoming.php" class="active">UPCOMING</a></li>
             <li><a href="about.php">ABOUT</a></li>
             <li><a href="contact.php">CONTACT US</a></li>
             </ul>
