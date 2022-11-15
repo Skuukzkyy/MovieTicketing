@@ -30,33 +30,25 @@ require "connection.php";
     <input id="searchBar" type="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
   </div>
     <hr><br>
-  <p class="head">TOP PICKS OF THE MONTH</p>
+  <p class="head">TOP PICKS</p>
   <div class="container">
-    <div class="box"></a>
-      <div class="imgBox">
-        <img src="media/m8.jpg">
-      </div>
-      <div class="details">
-        <div class="content">
-          <h2>One Pice Film Red </h2>
-          <p> One Piece Film: Red is a 2022 Japanese animated fantasy action-adventure film directed by Gorō Taniguchi and produced by Toei Animation.</p><br>
-          <a href="movie_tab.php"><button class="btn_buy"> Buy Tickets</button></a>
+    <?php
+      $rows = mysqli_query($conn, "SELECT * FROM tickets_tbl INNER JOIN movie_tbl ON tickets_tbl.movie_id = movie_tbl.movie_id ORDER BY tickets_tbl.sold_ticket DESC LIMIT 10");
+      foreach ($rows as $row): ?>
+        <div class="box"></a>
+          <div class="imgBox">
+            <img src="img/<?php echo $row['banner2'] ?>">
+          </div>
+          <div class="details">
+            <div class="content">
+              <h2><?php echo $row['movie_title'] ?></h2>
+              <p><?php echo $row['movie_description'] ?></p><br>
+              <a href="movie_tab.php?id=<?php echo $row['movie_id'] ?>"><button class="btn_buy"> Buy Tickets</button></a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      <?php endforeach?>
 
-    <div class="box">
-      <div class="imgBox">
-        <img src="media/m10.jpg">
-      </div>
-      <div class="details">
-        <div class="content">
-          <h2>Armin Arlelt </h2>
-          <p> a soldier in the Scout Regiment. He is also a childhood friend of Eren Jaeger and Mikasa Ackermann, and is one of the two deuteragonists of the series.</p>
-          <button class="btn_buy"> Buy Tickets</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- NEW RELEASES---------------------------------------------------------->
