@@ -125,6 +125,13 @@ hr{
     padding: 15px;
 }
 
+.content{
+    display: flex;
+    flex-flow: column; 
+    min-width: 100%;
+}
+
+
 h1{
     color: white;
     text-align: center;
