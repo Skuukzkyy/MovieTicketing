@@ -105,6 +105,7 @@
 					<div class="content">
 						<h2><?php echo $row["movie_title"]; ?></h2>
 						<p><?php echo $row["movie_start"]; ?></p><br>
+						<a href="movie_tab.php?id=<?php echo $row['movie_id'] ?>"><button class="btn_buy"> Buy Tickets</button></a>
 					</div>
 				</div>
 			</div>

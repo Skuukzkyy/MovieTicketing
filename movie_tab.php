@@ -67,6 +67,7 @@
                         echo $category['category']." ";
                     } ?>
                 </h4>
+                <h4>Showing: <?php echo $movie_start ?> <strong>TO</strong> <?php echo $movie_end ?></h4>
                 <h1><?php echo $movie_title ?></h1>
                     <h3><?php echo $movie_description ?><br></h3><br>
         </div><br>
