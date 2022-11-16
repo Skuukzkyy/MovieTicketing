@@ -1,5 +1,14 @@
 <?php
     require "connection.php";
+    //Import PHPMailer classes into the global namespace
+    //These must be at the top of your script, not inside a function
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    //Load Composer's autoloader
+    require 'vendor/autoload.php';
+
+
     $id = $_GET['id'];
     $movie_info = mysqli_query($conn, "SELECT * FROM movie_tbl INNER JOIN tickets_tbl ON movie_tbl.movie_id = tickets_tbl.movie_id WHERE movie_tbl.movie_id = '$id'");
     foreach ($movie_info as $info) {
@@ -33,6 +42,48 @@
             mysqli_query($conn, "INSERT INTO transaction_tbl VALUES ('', '$id', '$name', '$email', '$ticket_price', '$num_of_ticket', '$total_cost', '$date', '$view_time')");
             mysqli_query($conn, "UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
             echo "<script>alert('Purchase Success! Please check your email for the receipt. 🤞')</script>";
+            
+            // SEND EMAIL WHEN SUCCESS
+            //Create an instance; passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+            try {
+                //Server settings
+                $mail->SMTPDebug = 0;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'movie.tastic69@gmail.com';                     //SMTP username
+                $mail->Password   = 'mvtuhmbdywpiivjt';                               //SMTP password
+                $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+                $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                //Recipients
+                $mail->setFrom('movie.tastic69@gmail.com', 'Movie Tastic');
+                $mail->addAddress($email);               //Name is optional
+                $mail->addReplyTo('movie.tastic69@gmail.com');
+                // $mail->addCC('cc@example.com');
+                // $mail->addBCC('bcc@example.com');
+
+                //Attachments
+                $mail->AddEmbeddedImage('img/'.$banner1.'', 'movie_banner');
+                // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'Ticket Receipt';
+                $mail->Body    = 'THANK YOU FOR BUYING <strong>'.$name.'</strong>!<br>
+                You bought <strong>'.$num_of_ticket.'</strong> tickets for the movie <strong>'.$movie_title.'</strong> for <strong>PHP'.$total_cost.'<strong>
+                <br>Date: '.$date.' '.$view_time.'
+                <br><br><img src="cid:movie_banner" width="800" height="600">';
+                // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                $mail->send();
+                echo 'Message has been sent';
+                header("Location: index.php");
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
         }
 
     }
@@ -81,7 +132,7 @@
                 <div class="box">
                     <center>
                         <h2>Buy Tickets Now</h2>
-                    <p class="Mtitle">One Piece Film Red</p>
+                    <p class="Mtitle"><?php echo $movie_title?></p>
                     </center>
 
                     <form action="" method="POST" class="formP">
