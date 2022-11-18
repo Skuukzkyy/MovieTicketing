@@ -19,7 +19,7 @@
         </nav>
     </header><hr>
 
-    <div class="container3">
+    <!-- <div class="container3">
 		<div class="contact-box">
 			<div class="box">
 				<h2>Contact Us</h2>
@@ -30,7 +30,7 @@
 				<button class="btn">Send</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 <div class="container1">
     <div class="box1">
@@ -38,19 +38,16 @@
         <h1 style="color: #00ffff;">Hi I'm Jerick</h1>
         <h5>Web Devloper - Back-end Developer</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a libero a leo lobortis posuere. In imperdiet justo sit amet ante sagittis varius.Ut et nisi suscipit, congue magna dapibus, vehicula enim.</p>
-        <br><p style="color: #00ffff;">EMAIL: Movietastic@gmail.com</p>
+        <br><p style="color: #00ffff;">EMAIL: movie.tastic69@gmail</p>
     </div>
-</div>
-
-<div class="container2">
     <div class="box2">
         <img src="media/p2.png" alt="" class="box-img">
         <h1 style="color: #00ffff;">Hi I'm Ralf</h1>
         <h5>Web Devloper - Front-end Developer</h5>
         <p>Nulla lacinia est vel convallis aliquet. Vivamus tincidunt pretium arcu, sit amet aliquam orci congue a. Aenean finibus massa ac fringilla convallis. Sed condimentum ultrices pretium. </p>
-        <br><p style="color: #00ffff;">EMAIL: Movietastic.2@gmail.com</p>
+        <br><p style="color: #00ffff;">EMAIL: movie.tastic69@gmail</p>
     </div>
-</div>                                                                                                                                                                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
+</div><br><br><br><hr>
 <br>
 
 </body>
