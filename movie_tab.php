@@ -39,7 +39,7 @@
         }elseif ($date < $movie_start || $date > $movie_end) {
             echo "<script>alert('ERROR⚠ This date is out of the showing range')</script>";
         }else{
-            mysqli_query($conn, "INSERT INTO transaction_tbl VALUES ('', '$id', '$name', '$email', '$ticket_price', '$num_of_ticket', '$total_cost', '$date', '$view_time')");
+            mysqli_query($conn, "INSERT INTO transaction_tbl VALUES ('', '$id', MD5('$name'), MD5('$email'), '$ticket_price', '$num_of_ticket', '$total_cost', '$date', '$view_time')");
             mysqli_query($conn, "UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
             echo "<script>alert('Purchase Success! Please check your email for the receipt. 🤞')</script>";
             
