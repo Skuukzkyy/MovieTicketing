@@ -1,5 +1,6 @@
 <?php
-	require "connection.php";
+	include("dbconfig.php");
+	$db = new MyDB();
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@
     <div class="picture">
 		<!-- QUERY FOR FEATURES MOVIES -->
 		<?php 
-			$rows = mysqli_query($conn, "SELECT * FROM movie_tbl LIMIT 5");
+			$rows = $db->mysqli->query("SELECT * FROM movie_tbl LIMIT 5");
 			$count = 0;
 		?>
 		<?php foreach ($rows as $row) : 
@@ -61,7 +62,7 @@
 		<ul id="autoWidth" class="cs-hidden">
         <!--box---------------------------->
 		<?php 
-			$rows = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE CURDATE() >= movie_start ORDER BY movie_start DESC LIMIT 10");
+			$rows = $db->mysqli->query("SELECT * FROM movie_tbl WHERE CURDATE() >= movie_start ORDER BY movie_start DESC LIMIT 10");
 			foreach ($rows as $row) : ?>
 				
 				<li class="item">
@@ -95,7 +96,7 @@
     <p class="head">UPCOMING MOVIES</p>
     <div class="container">
 	<?php 
-		$rows = mysqli_query($conn, "SELECT * FROM movie_tbl WHERE CURDATE() <= movie_start ORDER BY movie_start DESC LIMIT 10");
+		$rows = $db->mysqli->query("SELECT * FROM movie_tbl WHERE CURDATE() <= movie_start ORDER BY movie_start DESC LIMIT 10");
 		foreach ($rows as $row) : ?>
 			<div class="box">
 				<div class="imgBox">

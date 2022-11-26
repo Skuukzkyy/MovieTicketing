@@ -1,5 +1,7 @@
 <?php
-    require "connection.php";
+    // require "connection.php";
+    include("dbconfig.php");
+	$db = new MyDB();
     //Import PHPMailer classes into the global namespace
     //These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
@@ -10,7 +12,7 @@
 
 
     $id = $_GET['id'];
-    $movie_info = mysqli_query($conn, "SELECT * FROM movie_tbl INNER JOIN tickets_tbl ON movie_tbl.movie_id = tickets_tbl.movie_id WHERE movie_tbl.movie_id = '$id'");
+    $movie_info = $db->mysqli->query("SELECT * FROM movie_tbl INNER JOIN tickets_tbl ON movie_tbl.movie_id = tickets_tbl.movie_id WHERE movie_tbl.movie_id = '$id'");
     foreach ($movie_info as $info) {
         $movie_title = $info['movie_title'];
         $movie_description = $info['movie_description'];
@@ -23,7 +25,7 @@
         $banner1 = $info['banner1'];
         $banner2 = $info['banner2'];
     }
-    $movie_category = mysqli_query($conn, "SELECT movie_category.movie_title, category_tbl.category FROM movie_category INNER JOIN category_tbl ON movie_category.category_id = category_tbl.category_id INNER JOIN movie_tbl ON movie_category.movie_title = movie_tbl.movie_title WHERE movie_tbl.movie_id = '$id'");
+    $movie_category = $db->getCategory($id);
 
     if (isset($_POST['buyBtn'])) {
         $name = $_POST['name'];
@@ -39,8 +41,10 @@
         }elseif ($date < $movie_start || $date > $movie_end) {
             echo "<script>alert('ERROR⚠ This date is out of the showing range')</script>";
         }else{
-            mysqli_query($conn, "INSERT INTO transaction_tbl VALUES ('', '$id', MD5('$name'), MD5('$email'), '$ticket_price', '$num_of_ticket', '$total_cost', '$date', '$view_time')");
-            mysqli_query($conn, "UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
+            $db->newTransaction($id, $name, $email, $ticket_price, $num_of_ticket, $total_cost, $date, $view_time);
+            // mysqli_query($conn, "INSERT INTO transaction_tbl VALUES ('', '$id', MD5('$name'), MD5('$email'), '$ticket_price', '$num_of_ticket', '$total_cost', '$date', '$view_time')");
+            $db->countSoldTickets($sold_ticket, $num_of_ticket, $id);
+            // mysqli_query($conn, "UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
             echo "<script>alert('Purchase Success! Please check your email for the receipt. 🤞')</script>";
             
             // SEND EMAIL WHEN SUCCESS

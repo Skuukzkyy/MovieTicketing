@@ -1,5 +1,7 @@
 <?php
 require "connection.php";
+include("dbconfig.php");
+$db = new MyDB();
 $current_date = date('Y-m-d');
 $next_month_date = date('Y-m-d', strtotime('+1 month'));
 ?>
@@ -35,7 +37,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 	<p class="head">TOP PICKS</p>
 	<div class="container top-picks-container">
 		<?php
-			$rows = mysqli_query($conn, "SELECT * FROM tickets_tbl INNER JOIN movie_tbl ON tickets_tbl.movie_id = movie_tbl.movie_id ORDER BY tickets_tbl.sold_ticket DESC LIMIT 10");
+			$rows = $db->mysqli->query("SELECT * FROM tickets_tbl INNER JOIN movie_tbl ON tickets_tbl.movie_id = movie_tbl.movie_id ORDER BY tickets_tbl.sold_ticket DESC LIMIT 10");
 			foreach ($rows as $row): $id = $row['movie_id']?>
 				<div class="box"></a>
 					<div class="imgBox">
@@ -45,7 +47,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 						<div class="content">
 							<h2><?php echo $row['movie_title'] ?></h2>
 							<p>
-								<?php $movie_category = mysqli_query($conn, "SELECT movie_category.movie_title, category_tbl.category FROM movie_category INNER JOIN category_tbl ON movie_category.category_id = category_tbl.category_id INNER JOIN movie_tbl ON movie_category.movie_title = movie_tbl.movie_title WHERE movie_tbl.movie_id = '$id'"); ?>
+								<?php $movie_category = $db->getCategory($id); ?>
 								<?php foreach ($movie_category as $category) {
 									echo $category['category'].", ";
 								} ?>  
@@ -72,7 +74,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 						<div id="content" class="content">
 							<h2><?php echo $row['movie_title'] ?></h2>
 							<p>
-								<?php $movie_category = mysqli_query($conn, "SELECT movie_category.movie_title, category_tbl.category FROM movie_category INNER JOIN category_tbl ON movie_category.category_id = category_tbl.category_id INNER JOIN movie_tbl ON movie_category.movie_title = movie_tbl.movie_title WHERE movie_tbl.movie_id = '$id'"); ?>
+							<!-- <?php $movie_category = $db->getCategory($id); ?> -->
 								<?php foreach ($movie_category as $category) {
 									echo $category['category'].", ";
 								} ?> 
@@ -90,7 +92,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 	<p id="search-title"></p>
 	<div class="container all-movies-container">
 		<?php
-			$rows = mysqli_query($conn, "SELECT * FROM movie_tbl ORDER BY movie_title");
+			$rows = $db->getMovies();
 			foreach ($rows as $row): $id = $row['movie_id']?>
 				<div class="box">
 					<div class="imgBox">
@@ -100,7 +102,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 						<div class="content">
 							<h2><?php echo $row['movie_title'] ?></h2>
 							<p>
-								<?php $movie_category = mysqli_query($conn, "SELECT movie_category.movie_title, category_tbl.category FROM movie_category INNER JOIN category_tbl ON movie_category.category_id = category_tbl.category_id INNER JOIN movie_tbl ON movie_category.movie_title = movie_tbl.movie_title WHERE movie_tbl.movie_id = '$id'"); ?>
+								<!-- <?php $movie_category = $db->getCategory($id); ?> -->
 								<?php foreach ($movie_category as $category) {
 									echo $category['category'].", ";
 								} ?>  
