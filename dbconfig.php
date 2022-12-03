@@ -16,7 +16,7 @@
         }
 
         public function countSoldTickets($sold_ticket, $num_of_ticket, $id){
-            $this->mysqli->query($conn, "UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
+            $this->mysqli->query("UPDATE tickets_tbl SET sold_ticket = $sold_ticket + $num_of_ticket WHERE movie_id = '$id'");
         }
         
         public function getCategory($id){

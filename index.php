@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	session_destroy();
 	include("dbconfig.php");
 	$db = new MyDB();
 ?>
@@ -34,7 +36,7 @@
     <div class="picture">
 		<!-- QUERY FOR FEATURES MOVIES -->
 		<?php 
-			$rows = $db->mysqli->query("SELECT * FROM movie_tbl LIMIT 5");
+			$rows = $db->mysqli->query("SELECT * FROM movie_tbl INNER JOIN tickets_tbl ON movie_tbl.movie_id = tickets_tbl.movie_id ORDER BY tickets_tbl.sold_ticket DESC LIMIT 5");
 			$count = 0;
 		?>
 		<?php foreach ($rows as $row) : 

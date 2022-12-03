@@ -61,4 +61,39 @@ hr{
     margin-right: 20px;
 }
 
+/* css for table */
+table{
+    width: 100%;
+    table-layout: fixed;
+    background-color: #00FFFF;
+    border-color: black;
+}
+th{
+    background-color: #177575;
+    text-align: center;
+}
+td{
+    word-wrap: break-word;
+}
+.td_title{
+    color: #177575;
+    font-weight: bold;
+}
+.td_descrip{
+text-indent: 20px;
+text-align: justify;
+font-size: 12px;
+}
 
+.td_trailer{
+font-size: 14px;
+}
+
+button.update{
+color: #fff;
+background-color: #0ac12b;
+border: none;
+border-radius: 5px;
+font-size: 15px;
+padding: 3px;
+}

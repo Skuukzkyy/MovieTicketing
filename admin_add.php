@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location: admin_login.php");
+}
 require 'connection.php';
 // if (isset($_GET["movie_id"])) {
 //     $movie_id = $_GET["movie_id"];
@@ -120,7 +124,7 @@ if(isset($_POST["btnSubmit"])){
         <img class="logo" src="media/logo.png" alt="logo">
         <nav>
             <ul class="nav_links">
-                <li><a href="index.php">HOME</a></li>
+                <li><a href="admin_view.php">HOME</a></li>
                 <!-- <li><a href="movie.php">MOVIES</a></li>
                 <li><a href="upcoming.php">UPCOMING</a></li>
                 <li><a href="about.php">ABOUT</a></li>

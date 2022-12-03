@@ -1,4 +1,8 @@
-<?php require("connection.php") ?>
+<?php 
+	require("connection.php") ;
+	session_start();
+	session_destroy();
+?>
 <!DOCTYPE html>
 <head>
     <title> MOVIETASTIC</title>

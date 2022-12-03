@@ -67,9 +67,12 @@ h3{
     padding-right: 50px;
     text-indent: 40px;
 }
-
+.showing{
+    color: rgb(243, 6, 6);
+    font-family: 'Century Gothic',sans-serif;
+}
 h4{
-    color: yellow;
+    color: #f0ad4e;
     font-family: 'Century Gothic',sans-serif;
 }
 

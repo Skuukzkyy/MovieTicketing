@@ -119,10 +119,11 @@
                 <img src="img/<?php echo $banner2 ?>" class="pic"><br><br><br><br>
                 <h4>
                     <?php foreach ($movie_category as $category) {
-                        echo $category['category']." ";
+                        echo $category['category']." - ";
                     } ?>
-                </h4>
-                <h4>Showing: <?php echo $movie_start ?> <strong>TO</strong> <?php echo $movie_end ?></h4>
+                </h4><br>
+                <h4 class="showing">SHOWING: <?php echo $movie_start ?> <strong>TO</strong> <?php echo $movie_end ?></h4>
+                <br>
                 <h1><?php echo $movie_title ?></h1>
                     <h3><?php echo $movie_description ?><br></h3><br>
         </div><br>

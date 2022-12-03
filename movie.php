@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 require "connection.php";
 include("dbconfig.php");
 $db = new MyDB();
@@ -19,7 +21,11 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 			<header>
 			<img class="logo" src="media/logo.png" alt="logo">
 					<nav>
-							<ul class="nav_links">
+								<ul class="nav_links">
+								<li><div class="search">
+                				<input id="searchBar" type="search" class="searchbar" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+               					<button id="searchBtn" type="button" name="search" class="searchbut"><img src="media/search.png" class="img"></button>
+                				</div></li>
 								<li><a href="index.php">HOME</a></li>
 								<li><a href="movie.php" class="active">MOVIES</a></li>
 								<li><a href="upcoming.php">UPCOMING</a></li>
@@ -30,9 +36,9 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 			</header>
 
 	<!-- TOP PICKS---------------------------------------------------------->
-	<div class="search-container">
+	<!-- <div class="search-container">
 		<input id="searchBar" type="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-	</div>
+	</div> -->
 		<hr><br>
 	<p class="head">TOP PICKS</p>
 	<div class="container top-picks-container">
@@ -89,7 +95,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 	<!-- ALL MOVIES---------------------------------------------------------->
 	<hr><br>
 	<p class="head">ALL MOVIES</p>
-	<p id="search-title"></p>
+	<center><p id="search-title"></p></center>
 	<div class="container all-movies-container">
 		<?php
 			$rows = $db->getMovies();
