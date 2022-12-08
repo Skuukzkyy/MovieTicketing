@@ -32,14 +32,16 @@ $db = new MyDB();
                 <li><a href="upcoming.php">UPCOMING</a></li>
                 <li><a href="about.php">ABOUT</a></li>
                 <li><a href="contact.php">CONTACT US</a></li> -->
-                <li class="admin">ADMINISTRATOR</li>
+                <li class="admin" style="color:black;">ADMINISTRATOR</li>
             </ul>
         </nav>
     </header>
     <hr><br>
 
 <!-- table view ------------------------------------------------------------------->
+<a href="admin_add.php"><button class="add">Add Movie</button></a>
 <h3 align="center" style="color: white;">MOVIE LIST</h3>
+
                 <br/>
     <table class="table table-bordered bg-white text-dark">
             <tr class="text-white">

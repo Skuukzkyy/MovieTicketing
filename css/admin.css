@@ -97,3 +97,15 @@ border-radius: 5px;
 font-size: 15px;
 padding: 3px;
 }
+button.add{
+    background-color: #00FFFF;
+    float: left;
+    color: black;
+    padding: 5px;
+    font-family: monospace;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+.admin{
+    color: black;
+}

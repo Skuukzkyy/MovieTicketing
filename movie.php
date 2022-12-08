@@ -24,7 +24,7 @@ $next_month_date = date('Y-m-d', strtotime('+1 month'));
 								<ul class="nav_links">
 								<li><div class="search">
                 				<input id="searchBar" type="search" class="searchbar" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-               					<button id="searchBtn" type="button" name="search" class="searchbut"><img src="media/search.png" class="img"></button>
+               					<!-- <button id="searchBtn" type="button" name="search" class="searchbut"><img src="media/search.png" class="img"></button> -->
                 				</div></li>
 								<li><a href="index.php">HOME</a></li>
 								<li><a href="movie.php" class="active">MOVIES</a></li>

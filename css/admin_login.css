@@ -59,14 +59,12 @@ h1{
 }
 /* form design -----------------------------------------------------------------*/
 
-form{
+.form{
+    text-align: center;
     width: 50%;
     font-family: monospace;
     font-weight: bold;
     font-size: 20px;
-    margin-left: 12%;
-    margin-right: 25%;
-    display: inline-block;
     color: white;
 }
 
@@ -89,11 +87,12 @@ form fieldset legend{
 	font-size: 25px;
 }
 
-.adminForm{
-    float: left;
-    padding-left: 400px;
-    padding-top: 30px;
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 input[type=text], input[type=password] {
     width: 100%;

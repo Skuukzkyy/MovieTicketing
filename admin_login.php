@@ -31,17 +31,20 @@
                 <li><a href="index.php">HOME</a></li>
             </ul>
         </nav>
-    </header>
+</header>
     <hr><br>
 
-    <center><h1>-- PLEASE INPUT ADMINISTRATOR'S CREDENTIAL --</h1><center>
-
-    <form action="" method="POST" class="adminForm">
-        <fieldset><legend>ADMINISTRATOR</legend>
-        USERNAME:<input type="text" name="name" id="">
-        PASSWORD:<input type="password" name="pass" id="">
-        <input type="submit" name="login" value="LOGIN">
-        </fieldset>
-    </form>
+    <center><h1>-- PLEASE INPUT ADMINISTRATOR'S CREDENTIAL --</h1></center>
+    <div class="form-container">
+        <div class="form">
+            <form action="" method="POST" class="adminForm">
+            <fieldset>
+                    <legend>ADMINISTRATOR</legend>
+                    USERNAME:<input type="text" name="name" id="">
+                    PASSWORD:<input type="password" name="pass" id="">
+                    <input type="submit" name="login" value="LOGIN">
+                </fieldset>
+            </form>
+        </div>
 </body>
 </html>
