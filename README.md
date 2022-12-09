@@ -1,4 +1,6 @@
 # MovieTicketing
+
+ ###Import the database first (movies.sqlq)
  
  ### To access admin page, go to /admin_view.php
  #### Username = admin
