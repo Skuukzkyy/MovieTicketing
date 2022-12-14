@@ -54,6 +54,14 @@ hr{
 .container1{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3%;
+}
+
+.container3{
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  width: 50%;
 }
 
 .box1{
